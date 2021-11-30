@@ -10,6 +10,7 @@ class CartController extends GetxController {
   }
 
   int get itemCount {
+    // return  _items?.length?? 0;
     return _items.length;
   }
 
@@ -46,12 +47,12 @@ class CartController extends GetxController {
     update();
   }
 
-  void removeItem(int productId){
+  void removeItem(int productId) {
     _items.remove(productId);
     update();
   }
 
-  void clear(){
+  void clear() {
     _items = {};
     update();
   }

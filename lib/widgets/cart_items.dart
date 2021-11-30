@@ -3,13 +3,13 @@ import 'package:get/get.dart';
 import 'package:shopping_getx/controller/cart_controller.dart';
 
 class CartItem extends StatelessWidget {
+  const CartItem(this.id, this.price, this.quantity, this.title, this.productId, {Key? key}) : super(key: key);
+  
   final String id;
   final int productId;
   final double price;
   final int quantity;
   final String title;
-
-  CartItem(this.id, this.price, this.quantity, this.title, this.productId);
 
   @override
   Widget build(BuildContext context) {

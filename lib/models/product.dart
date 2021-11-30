@@ -1,5 +1,3 @@
-import 'package:get/get_connect/http/src/request/request.dart';
-
 class Product{
   final int id;
   final String productTitle;

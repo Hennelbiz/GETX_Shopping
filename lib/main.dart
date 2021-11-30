@@ -7,18 +7,23 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
+ MyApp({ Key? key }) : super(key: key);
+
+  final ThemeData theme = ThemeData(fontFamily: "Lato");
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
+      /*theme: ThemeData(
         primarySwatch: Colors.purple,
-        accentColor: Colors.deepOrange,
-        //colorScheme: ColorScheme(secondary: Colors.deepOrange, onSecondary: Colors.deepOrange, secondaryVariant: Colors.deepOrange),
+        //accentColor: Colors.deepOrange,
+        //colorScheme: ColorScheme(secondary: Colors.deepOrange, onSecondary: Colors.deepOrange, secondaryVariant: Colors.deepOrange, ),
         fontFamily: "Lato",
+      ),*/
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(secondary: Colors.deepOrange, primary: Colors.purple),
       ),
       home: ProductOverViewPage(),
     );

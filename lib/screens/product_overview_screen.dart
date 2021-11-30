@@ -9,33 +9,30 @@ import 'package:shopping_getx/widgets/productgrid.dart';
 class ProductOverViewPage extends StatelessWidget {
   ProductOverViewPage({Key? key}) : super(key: key);
 
-  final cartController = Get.put(CartController);
+  final cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Shop"),
+        title: const Text("My Shop"),
         actions: <Widget>[
           GetBuilder<CartController>(
               init: CartController(),
               builder: (contex) {
                 return Badge(
                   child: IconButton(
-                      icon: Icon(
-                        Icons.shopping_cart,
-                      ),
+                      icon: const Icon(Icons.shopping_cart,),
                       onPressed: () {
-                        Get.to(() => CartScreen());
+                        Get.to(() => const CartScreen());
                       }),
-                  //value: cartController.itemCount.toString(),
                   value: cartController.itemCount.toString(),
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                 );
               })
         ],
       ),
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       body: ProductsGrid(),
     );
   }

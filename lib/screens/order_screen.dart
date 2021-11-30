@@ -7,19 +7,20 @@ import 'package:shopping_getx/widgets/order_item.dart';
 class OrderScreen extends StatelessWidget {
   OrderScreen({Key? key}) : super(key: key);
 
-  var orderController = Get.put(OrderController());
+  final orderController = Get.put(OrderController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Yours Orders"),
+        title: const Text("data"),
       ),
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       body: ListView.builder(
-          itemCount: orderController.orders.length,
-          itemBuilder: (context, index) =>
-              OrderItem(orderController.orders[index])),
+        itemCount: orderController.orders.length,
+        itemBuilder: (context, index) =>
+            OrderItem(orderController.orders[index]),
+      ),
     );
   }
 }

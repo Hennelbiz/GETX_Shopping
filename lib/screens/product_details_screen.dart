@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:shopping_getx/controller/cart_controller.dart';
-import 'package:shopping_getx/controller/prodct_controller.dart';
+//import 'package:get/get.dart';
+//import 'package:shopping_getx/controller/cart_controller.dart';
+//import 'package:shopping_getx/controller/prodct_controller.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
+  const ProductDetailsScreen(
+      this.title, this.price, this.image, this.description,
+      {Key? key})
+      : super(key: key);
 
   final String title;
   final double price;
   final String image;
   final String description;
-
-  ProductDetailsScreen(this.title, this.price, this.image, this.description);
 
   @override
   Widget build(BuildContext context) {
@@ -24,44 +26,35 @@ class ProductDetailsScreen extends StatelessWidget {
           color: const Color(0xffF6F6F6),
           child: Column(
             children: [
-              Container(
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(25),
-                      bottomRight: Radius.circular(25)),
-                  child: Image.network(
-                    image,
-                    fit: BoxFit.cover,
-                  ),
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25),
                 ),
+                child: Image.network(image, fit: BoxFit.cover),
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
-                        Chip(
-                          label: Text(
-                            //"Price: " + "₦" + price.toString(),
-                            'Price: ₦${price.toString()}',
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                          backgroundColor: Theme.of(context).primaryColor,
-                        ),
-                    const SizedBox(height: 15),
-                    Text(
-                      "" + description,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color(0xff403B58),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Chip(
+                      label: Text("Price: " "₦" + price.toString(),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold)),
+                      backgroundColor: Theme.of(context).primaryColor,
                     ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text("" + description,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Color(0xff403B58),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold))
                   ],
                 ),
               )
